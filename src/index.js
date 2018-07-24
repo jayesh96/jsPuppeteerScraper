@@ -16,21 +16,29 @@ class index{
             page.setViewport({ width: 1280, height: 926 });
             await page.goto(url);
             const items = await scraperObject.scrapeInfiniteScrollItems(scraperObject,page, scraperObject.scrapeData, 100);
-            fs.writeFileSync(`./${filename}`, items);
-            await browser.close();
+            browser.close();
+            fs.writeFile(`./${filename}`, items, function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+
+                return 1
+            });
+
+            
           }
     
-          this.runPageWisePagination = async (scraperObject,url,filename,maxPagesToScrap) => {
+          this.runPageWisePagination = async (url,filename,maxPagesToScrap) => {
+            var scraperObject = new Scraper();
             var combinedDataList = {}
             for (let offsetValue = 0; offsetValue < maxPagesToScrap; offsetValue+=1) {
-                newUrl = url.split('offset')[0]+ `offset=${offsetValue*15}` ;
-                console.log(newUrl);
-                const res = await  scraperObject.WebListscraper(newUrl);
+                url = url.split('offset')[0]+ `offset=${offsetValue*15}`;
+                const res = await  scraperObject.WebListscraper(scraperObject,url);
                 combinedDataList[offsetValue+1] = res;
                 if (offsetValue+1 == maxPagesToScrap){
                     fs.writeFileSync(`./${filename}`, JSON.stringify(combinedDataList))
                     console.log("Data is Saved!")
-                    return combinedDataList
+                    return 1
                 }
             }
         }

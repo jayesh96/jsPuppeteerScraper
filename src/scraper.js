@@ -16,12 +16,12 @@ class scraper {
             dataList.forEach((element) => {
                 let dataJson = {};
                 try {
-                    dataJson.name = element.querySelector('h2.media-heading').innerText;
+                    // dataJson.name = element.querySelector('h2.media-heading').innerText;
         
                     // For Booking.com
-                    // dataJson.name = hotelelement.querySelector('span.sr-hotel__name').innerText;
-                    // dataJson.reviews = hotelelement.querySelector('span.review-score-widget__subtext').innerText;
-                    // dataJson.rating = hotelelement.querySelector('span.review-score-badge').innerText;
+                    // dataJson.name = element.querySelector('span.sr-hotel__name').innerText;
+                    // dataJson.reviews = element.querySelector('span.review-score-widget__subtext').innerText;
+                    // dataJson.rating = element.querySelector('span.review-score-badge').innerText;
                 }
                 catch (exception){
                     console.dir(" Exception Occured ")
@@ -33,11 +33,11 @@ class scraper {
             return scrapedData;
         };
 
-        this.WebListscraper = async (url) => {
-            const browser = await puppeteer.launch({ headless: true}); // initates a new browser (default is true)
+        this.WebListscraper = async (scraperObject,url) => {
+            const browser = await puppeteer.launch({ headless: false}); // initates a new browser (default is true)
             const page = await browser.newPage();
             await page.goto(url); // redirects to a new url and open a new page
-            let hotelList = await page.evaluate(new Scraper().scrapeData) // evaluate and scrape data 
+            let hotelList = await page.evaluate(scraperObject.scrapeData) // evaluate and scrape data 
             browser.close();  
             return hotelList
         };
