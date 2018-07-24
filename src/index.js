@@ -1,7 +1,6 @@
 const puppeteer = require('puppeteer'); 
 const Scraper = require('./scraper')
 const fs = require('fs');
-const argv = require('minimist')(process.argv.slice(2));
 
 // CODE STARTS HERE
 
