@@ -37,9 +37,9 @@ class scraper {
             const browser = await puppeteer.launch({ headless: false}); // initates a new browser (default is true)
             const page = await browser.newPage();
             await page.goto(url); // redirects to a new url and open a new page
-            let hotelList = await page.evaluate(scraperObject.scrapeData) // evaluate and scrape data 
+            let hotelList = await page.evaluate(scraperObject.scrapeData); // evaluate and scrape data 
             browser.close();  
-            return hotelList
+            return hotelList;
         };
 
         this.scrapeInfiniteScrollItems = async (scraperObject,page, itemTargetCount, scrollDelay) => {

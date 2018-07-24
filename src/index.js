@@ -4,7 +4,7 @@ const fs = require('fs');
 
 // CODE STARTS HERE
 
-class index{ 
+class main{ 
     constructor(){
         this.runInfiniteScrollPagination = async (url,filename) => {
             // Set up browser and page.
@@ -22,7 +22,7 @@ class index{
                     return console.log(err);
                 }
 
-                return 1
+                return 1;
             });
 
             
@@ -30,15 +30,15 @@ class index{
     
           this.runPageWisePagination = async (url,filename,maxPagesToScrap) => {
             var scraperObject = new Scraper();
-            var combinedDataList = {}
+            var combinedDataList = {};
             for (let offsetValue = 0; offsetValue < maxPagesToScrap; offsetValue+=1) {
                 url = url.split('offset')[0]+ `offset=${offsetValue*15}`;
                 const res = await  scraperObject.WebListscraper(scraperObject,url);
                 combinedDataList[offsetValue+1] = res;
                 if (offsetValue+1 == maxPagesToScrap){
                     fs.writeFileSync(`./${filename}`, JSON.stringify(combinedDataList))
-                    console.log("Data is Saved!")
-                    return 1
+                    console.log("Data is Saved!");
+                    return 1;
                 }
             }
         }
@@ -51,7 +51,7 @@ class index{
 
 
 
-module.exports = index;
+module.exports = main;
 
 
 
