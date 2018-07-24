@@ -23,7 +23,7 @@ console.log(pagination_type)
 if(pagination_type == -1 || url == -1|| type == -1){
     console.log("Arguments Not Passed Completely")
 }else if(pagination_type == 'infinite_scrolling'){
-    console.log("Passed")
+    // console.log("Passed")
     scraperObject.runInfiniteScrollPagination(url,filename)
 }else if(pagination_type == 'page_wise'){
     

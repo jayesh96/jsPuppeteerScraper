@@ -71,3 +71,6 @@ typings/
 
 # Serverless directories
 .serverless
+
+#Dont Add .json files
+.json
