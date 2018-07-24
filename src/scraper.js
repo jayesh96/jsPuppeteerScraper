@@ -6,22 +6,22 @@ class scraper {
         this.scrapeData = ( ) => {
             // initialize hotels array
             let scrapedData = [];
-            // hotels List Fetched as an array
-            let dataList = document.querySelectorAll('div.media.list_media');
+            // scraped data List Fetched as an array
+            // let dataList = document.querySelectorAll('div.media.list_media');
             
             // For Booking.com
-            // let dataList = document.querySelectorAll('div.sr_property_block[data-hotelid]');
+            let dataList = document.querySelectorAll('div.sr_property_block[data-hotelid]');
             
-            // iterating over each hotel
+            // iterating over each element
             dataList.forEach((element) => {
                 let dataJson = {};
                 try {
                     // dataJson.name = element.querySelector('h2.media-heading').innerText;
         
                     // For Booking.com
-                    // dataJson.name = element.querySelector('span.sr-hotel__name').innerText;
-                    // dataJson.reviews = element.querySelector('span.review-score-widget__subtext').innerText;
-                    // dataJson.rating = element.querySelector('span.review-score-badge').innerText;
+                    dataJson.name = element.querySelector('span.sr-hotel__name').innerText;
+                    dataJson.reviews = element.querySelector('span.review-score-widget__subtext').innerText;
+                    dataJson.rating = element.querySelector('span.review-score-badge').innerText;
                 }
                 catch (exception){
                     console.dir(" Exception Occured ")
@@ -29,7 +29,7 @@ class scraper {
                 }
                 scrapedData.push(dataJson);
             });
-            // return hotel list json 
+            // return scraped data list json 
             return scrapedData;
         };
 
@@ -42,7 +42,7 @@ class scraper {
             return hotelList
         };
 
-        this.scrapeInfiniteScrollItems = async (scraperObject,page, scrapeData, itemTargetCount, scrollDelay = 1000) => {
+        this.scrapeInfiniteScrollItems = async (scraperObject,page, itemTargetCount, scrollDelay) => {
             let items = [];
             try {
               let previousHeight;
@@ -53,7 +53,7 @@ class scraper {
                 await page.waitForFunction(`document.body.scrollHeight > ${previousHeight}`);
                 await page.waitFor(scrollDelay);
               }
-            } catch(e) { }
+            } catch(exception) { }
             return  JSON.stringify(items);
           };
         

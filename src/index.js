@@ -15,7 +15,7 @@ class index{
             const page = await browser.newPage();
             page.setViewport({ width: 1280, height: 926 });
             await page.goto(url);
-            const items = await scraperObject.scrapeInfiniteScrollItems(scraperObject,page, scraperObject.scrapeData, 100);
+            const items = await scraperObject.scrapeInfiniteScrollItems(scraperObject,page, 100,1000);
             browser.close();
             fs.writeFile(`./${filename}`, items, function(err) {
                 if(err) {

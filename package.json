@@ -4,7 +4,7 @@
   "description": "A website scraper built using puppeter",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test1": "mocha"
   },
   "author": "",
   "license": "ISC",
