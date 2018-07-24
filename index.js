@@ -12,12 +12,19 @@ Scraper.prototype.scrapeData = ( ) => {
     let scrapedData = [];
     // hotels List Fetched as an array
     let dataList = document.querySelectorAll('div.media.list_media');
+    // For Booking.com
+    // let dataList = document.querySelectorAll('div.sr_property_block[data-hotelid]');
+    
     // iterating over each hotel
-    dataList.forEach((dataValue) => {
+    dataList.forEach((element) => {
         let dataJson = {};
         try {
-            console.dir(" Hello")
             dataJson.name = element.querySelector('h2.media-heading').innerText;
+
+            // For Booking.com
+            // dataJson.name = hotelelement.querySelector('span.sr-hotel__name').innerText;
+            // dataJson.reviews = hotelelement.querySelector('span.review-score-widget__subtext').innerText;
+            // dataJson.rating = hotelelement.querySelector('span.review-score-badge').innerText;
         }
         catch (exception){
             console.dir(" Exception Occured ")
