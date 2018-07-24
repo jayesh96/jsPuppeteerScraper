@@ -36,12 +36,12 @@ https://github.com/GoogleChrome/puppeteer
     
 Example:
 
-    node example1.js --pagination infinite_scrolling --url 'https://www.burrp.com/delhi/north-indian-collection' --filename data2.json --type housing
+    node example.js --pagination infinite_scrolling --url 'https://www.burrp.com/delhi/phase-v-restaurants/nearby-offers' --filename data2.json --type housing
     
 
 *2) Scraping page wise*
 
-    node example.js --pagination infinite_scrolling --url 'https://www.burrp.com/delhi/phase-v-restaurants/nearby-offers' --filename data2.json --type housing
+    node main.js --pagination 'page_wise' --url '<some_url>' --filename 'file_name' --type 'scraper_type' --pagecount 'no_of_pages_to scrap'
     
 Example:
     
