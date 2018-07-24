@@ -36,7 +36,7 @@ https://github.com/GoogleChrome/puppeteer
     
 Example:
 
-    node main.js --pagination infinite_scrolling --url 'https://www.burrp.com/mumbai/north-indian-collection' --filename data2.json--type housing
+    node example1.js --pagination infinite_scrolling --url 'https://www.burrp.com/delhi/north-indian-collection' --filename data2.json --type housing
     
 
 *2) Scraping page wise*
@@ -50,7 +50,7 @@ Example:
     // dataJson.name = hotelelement.querySelector('span.sr-hotel__name').innerText;
     // dataJson.reviews = hotelelement.querySelector('span.review-score-widget__subtext').innerText;
     // dataJson.rating = hotelelement.querySelector('span.review-score-badge').innerText
-    
+
     node main.js --pagination page_wise --url 'https://www.burrp.com/mumbai/north-indian-collection' --filename data3.json --type housing --pagecount 10
 
 
