@@ -1,14 +1,5 @@
-// USAGE 
-// 1) Scraper with pagination page wise
-// node main.js --pagination 'page_wise' --url '<some_url>' --filename 'file_name' --type 'scraper_type' --pagecount 'no_of_pages_to scrap'
-// ----------------------------------------------------------------------------------------------------------------------------------------
-
-//2 ) Scraper with pagination infinite scrolling
-// node main.js --pagination 'infinte_scrolling' --url '<some_url>' --filename 'file_name' --type 'scraper_type' 
-
-
 const argv = require('minimist')(process.argv.slice(2));
-const Index = require('.././index')
+const Index = require('../src/index')
 
 
 let scraperObject = new Index();
