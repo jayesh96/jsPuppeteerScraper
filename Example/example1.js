@@ -8,10 +8,10 @@
 
 
 const argv = require('minimist')(process.argv.slice(2));
-const Scraper = require('./index')
+const Index = require('.././index')
 
 
-let scraperObject = new Scraper();
+let scraperObject = new Index();
 console.log(argv)
 pagination_type = argv['pagination'] || "-1"
 filename = argv['filename'] || "data.json"
