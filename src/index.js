@@ -22,7 +22,7 @@ class main{
                     return console.log(err);
                 }
 
-                return 1;
+                return {status:true};
             });
 
             
@@ -38,7 +38,7 @@ class main{
                 if (offsetValue+1 == maxPagesToScrap){
                     fs.writeFileSync(`./${filename}`, JSON.stringify(combinedDataList))
                     console.log("Data is Saved!");
-                    return 1;
+                    return {status:true};
                 }
             }
         }
