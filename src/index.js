@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer'); 
-const Scraper = require('./scraper')
+const scraper = require('./scraper')
 const fs = require('fs');
 
 // CODE STARTS HERE
@@ -8,10 +8,8 @@ class main{
     constructor(){
         this.runInfiniteScrollPagination = async (url,filename) => {
             // Set up browser and page.
-            let scraperObject = new Scraper();
-            const browser = await puppeteer.launch({
-              headless: false,
-            });
+            let scraperObject = new scraper();
+            const browser = await puppeteer.launch({headless: false});
             const page = await browser.newPage();
             page.setViewport({ width: 1280, height: 926 });
             await page.goto(url);
@@ -26,10 +24,10 @@ class main{
             });
 
             
-          }
-    
-          this.runPageWisePagination = async (url,filename,maxPagesToScrap) => {
-            var scraperObject = new Scraper();
+        }
+        
+        this.runPageWisePagination = async (url,filename,maxPagesToScrap) => {
+            var scraperObject = new scraper();
             var combinedDataList = {};
             for (let offsetValue = 0; offsetValue < maxPagesToScrap; offsetValue+=1) {
                 url = url.split('offset')[0]+ `offset=${offsetValue*15}`;
@@ -42,11 +40,7 @@ class main{
                 }
             }
         }
-
     }
-
-    
-
 }
 
 
