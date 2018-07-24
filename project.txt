@@ -1,0 +1,14 @@
+/Users/jayesh/Desktop/Scraper
+├── README.md
+├── example
+|  └── example.js
+├── out.txt
+├── package-lock.json
+├── package.json
+├── src
+|  ├── index.js
+|  └── scraper.js
+└── test
+   └── test.js
+
+directory: 211 file: 8 
