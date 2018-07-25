@@ -1,103 +1,69 @@
-# Documentation for js-puppetter-scraper
+# jsPuppeteerScraper
+# (Hotels and Housing Property Scraper)
+*A Javascript Based Scraper which is used to scrap data from websites using Puppeteer tool.*
+*The project can be used for both infinte scrolling as well as page wise scrolling*
+*The project is implemented using ES6 guidelines*
 
-**js-puppetter-scraper** is a **nodejs package** based on puppeteer library.The main dependency for the project is **puppetter**.
-Install puppetter using :
-		
-		npm i puppetter
-
-The Structure of project is: 
-			
-			Scraper
-			├── README.md
-			├── example
-			|  └── example.js //a basic command line utility 
-			├── out.txt
-			├── package-lock.json
-			├── package.json
-			├── src
-			|  ├── index.js	//entry point for project
-			|  └── scraper.js
-			└── test
-			   └── test.js
-
-	directory: 211 file: 8 
-	
-
-The project consist of two files:
-1) Index.js
-2) scraper.js
-
-## Index.js
-
-index.js is the entry point of project which consist of two functions initiated inside main class
-
-		class  main{
-
-			constructor(){
-
-			this.runInfiniteScrollPagination  =  async (url,filename)={
-				...
-				};
-
-			this.runPageWisePagination  =  async (url,filename,maxPagesToScrap) => {
-				...
-				};	
-			}
-		}
-		
-		module.exports = main;
-The input required for runInfiniteScrollPagination() is **url** and **filename**
-The input required for runPageWisePagination() is **url** ,**filename** and **maxPagesToScrap**
-
-# scraper.js
-
-	class  scraper{
-
-			constructor(){
-
-				this.scrapeData  =  async (url,filename)={
-				...
-				};
-
-				this.WebListscraper  =  async (url,filename,maxPagesToScrap) => {
-				...
-				};	
-				this.scrapeInfiniteScrollItems  =  async (url,filename,maxPagesToScrap) => {
-				...
-				};	
-			}
-		}
-		module.exports = scraper;
-
-This module is used for scraping and extracting data and comprises of three different functions
-
-## Output
-
-The output of project will be `<filename>.json` file stored in root project.
+# Disclaimer:
+*For Educational and Informational Purposes Only*
 
 
-## Running  Test Files
 
-Unit Test has been done using **Mocha+Chai** . The test script can be called using
+# Installation 
 
-					npm test
-					
-The test output will be saved as **testdata.json**
+    git init
+    
+    git clone https://github.com/jayesh96/jsPuppeteerScraper.git
+   
+# Install Puppeter
+https://github.com/GoogleChrome/puppeteer
 
-## Check out few examples 
+    npm i puppeteer
+    # or "yarn add puppeteer"
 
-***1 ) Scraper for infinite scrolling***
+  
+# Install Dependencies
+    npm install
+    npm install -g nodemon
 
-	node example/example.js --pagination 'infinte_scrolling' --url '<some_url>' --filename 'file_name' --type 'scraper_type' c
+# Start the Server
+    node main.js
+    
+    
+# USAGE 
+*1 ) Scraper for infinite scrolling*
 
+    node example/example.js --pagination 'infinte_scrolling' --url '<some_url>' --filename 'file_name' --type 'scraper_type' c
+    
 Example:
 
-	node example/example.js --pagination infinite_scrolling --url 'https://www.burrp.com/delhi/phase-v-restaurants/nearby-offers' --filename data2.json --type housing
+    node example/example.js --pagination infinite_scrolling --url 'https://www.burrp.com/delhi/phase-v-restaurants/nearby-offers' --filename data2.json --type housing
+    
 
-***2) Scraping page wise***
+*2) Scraping page wise*
 
-	node example/example.js --pagination 'page_wise' --url '<some_url>' --filename 'file_name' --type 'scraper_type' --pagecount 'no_of_pages_to scrap'
-
+    node example/example.js --pagination 'page_wise' --url '<some_url>' --filename 'file_name' --type 'scraper_type' --pagecount 'no_of_pages_to scrap'
+    
 Example:
+    
+    // For Booking.com
+    // let dataList = document.querySelectorAll('div.sr_property_block[data-hotelid]');
+    // dataJson.name = hotelelement.querySelector('span.sr-hotel__name').innerText;
+    // dataJson.reviews = hotelelement.querySelector('span.review-score-widget__subtext').innerText;
+    // dataJson.rating = hotelelement.querySelector('span.review-score-badge').innerText
 
-	node example/example.js --pagination page_wise --url 'https://www.booking.com/searchresults.html?aid=304142&label=gen173nr-1FCAEoggJCAlhYSDNYBGhsiAEBmAExuAEHyAEM2AEB6AEB-AECkgIBeagCAw&sid=caa43958feeb7988ce08164373a68dbb&class_interval=1&dest_id=866&dest_type=region&dtdisc=0&from_sf=1&group_adults=2&group_children=0&inac=0&index_postcard=0&label_click=undef&lsf=class%7C4%7C639&nflt=class=5;class=4;class=3;&no_rooms=1&order=class&postcard=0&raw_dest_type=region&region=866&room1=A,A&sb_price_type=total&ss_all=0&ssb=empty&sshis=0&rows=15&offset=0' --filename data3.json --type housing --pagecount 2
+    node example/example.js --pagination page_wise --url 'https://www.booking.com/searchresults.html?aid=304142&label=gen173nr-1FCAEoggJCAlhYSDNYBGhsiAEBmAExuAEHyAEM2AEB6AEB-AECkgIBeagCAw&sid=caa43958feeb7988ce08164373a68dbb&class_interval=1&dest_id=866&dest_type=region&dtdisc=0&from_sf=1&group_adults=2&group_children=0&inac=0&index_postcard=0&label_click=undef&lsf=class%7C4%7C639&nflt=class=5;class=4;class=3;&no_rooms=1&order=class&postcard=0&raw_dest_type=region&region=866&room1=A,A&sb_price_type=total&ss_all=0&ssb=empty&sshis=0&rows=15&offset=0' --filename data3.json --type housing --pagecount 2
+
+
+# Documentation
+ To check out docs visit [https://jayesh96.github.io/jsPuppeteerScraper/](https://github.com/jayesh96/jsPuppeteerScraper "Documentation")
+
+
+# Note
+Different Website uses different query selectors, so we need to change based on that for proper web scraping.
+
+
+# DEMO
+
+https://drive.google.com/file/d/1uSu8UbWi4qGGIcxRRpHe2GneAto_y4Uj/view
+
