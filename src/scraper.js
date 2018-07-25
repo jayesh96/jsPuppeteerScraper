@@ -20,7 +20,7 @@ class scraper {
                     dataJson.rating = element.querySelector('span.review-score-badge').innerText;
                 }
                 catch (exception){
-                    console.dir(" Exception Occured ");
+                    console.dir(' Exception Occured ');
                     console.dir(exception);
                 }
                 scrapedData.push(dataJson);
