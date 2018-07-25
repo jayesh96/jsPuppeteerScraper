@@ -56,7 +56,7 @@ Example:
 
 
 # Documentation
- To check out docs visit [https://jayesh96.github.io/jsPuppeteerScraper/](https://github.com/jayesh96/jsPuppeteerScraper "Documentation")
+ To check out docs visit [https://jayesh96.github.io/jsPuppeteerScraper/](https://jayesh96.github.io/jsPuppeteerScraper/ "Documentation")
 
 
 # Note
