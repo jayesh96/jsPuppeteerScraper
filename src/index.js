@@ -19,7 +19,7 @@ class main{
                 if(err) {
                     return console.log(err);
                 }
-                return callback(null,{status:true});
+                return callback({status:1});
             });
         }
         this.runPageWisePagination = async (url,filename,maxPagesToScrap,callback) => {
@@ -34,7 +34,7 @@ class main{
                 if (offsetValue+1 == maxPagesToScrap){
                     fs.writeFileSync(`./${filename}`, JSON.stringify(combinedDataList))
                     console.log('Data is Saved!');
-                    return callback(null,{status:true});
+                    return callback({status:1});
                 }
             }
         }
