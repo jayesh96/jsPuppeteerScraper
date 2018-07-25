@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer'); 
 
-
 class scraper { 
     constructor(){
         this.scrapeData = ( ) => {
@@ -8,16 +7,13 @@ class scraper {
             let scrapedData = [];
             // scraped data List Fetched as an array
             // let dataList = document.querySelectorAll('div.media.list_media');
-            
             // For Booking.com
             let dataList = document.querySelectorAll('div.sr_property_block[data-hotelid]');
-            
             // iterating over each element
             dataList.forEach((element) => {
                 let dataJson = {};
                 try {
                     // dataJson.name = element.querySelector('h2.media-heading').innerText;
-        
                     // For Booking.com
                     dataJson.name = element.querySelector('span.sr-hotel__name').innerText;
                     dataJson.reviews = element.querySelector('span.review-score-widget__subtext').innerText;
@@ -59,6 +55,5 @@ class scraper {
         
     }
 }
-
 
 module.exports = scraper;

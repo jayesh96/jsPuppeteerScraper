@@ -4,7 +4,6 @@ const scraper = require('./scraper')
 const fs = require('fs');
 
 // CODE STARTS HERE
-
 class main{ 
     constructor(){
         this.runInfiniteScrollPagination = async (url,filename) => {
@@ -20,13 +19,9 @@ class main{
                 if(err) {
                     return console.log(err);
                 }
-
                 return {status:true};
             });
-
-            
         }
-        
         this.runPageWisePagination = async (url,filename,maxPagesToScrap) => {
             var scraperObject = new scraper();
             var combinedDataList = {};
@@ -45,8 +40,6 @@ class main{
         }
     }
 }
-
-
 
 module.exports = main;
 
