@@ -56,7 +56,7 @@ Example:
 
 
 # Documentation
- To check out docs visit [I'm an inline-style link with title](https://github.com/jayesh96/jsPuppeteerScraper "Documentation")
+ To check out docs visit [https://github.com/jayesh96/jsPuppeteerScraper](https://github.com/jayesh96/jsPuppeteerScraper "Documentation")
 
 
 # Note
