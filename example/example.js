@@ -13,9 +13,13 @@ var tryScraper = () => {
     if(paginationType == -1 || url == -1|| type == -1){
         console.log('Arguments Not Passed Completely')
     }else if(paginationType == 'infinite_scrolling'){
-        scraperObject.runInfiniteScrollPagination(url,filename);
+        scraperObject.runInfiniteScrollPagination(url,filename,function(){
+            
+        })
     }else if(paginationType == 'page_wise'){    
-        scraperObject.runPageWisePagination(url,filename,maxPagesToScrap);
+        scraperObject.runPageWisePagination(url,filename,maxPagesToScrap,function(){
+            
+        });
     }else{
         console.log('Some Error/No Match Found');
     }

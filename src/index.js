@@ -6,7 +6,7 @@ const fs = require('fs');
 // CODE STARTS HERE
 class main{ 
     constructor(){
-        this.runInfiniteScrollPagination = async (url,filename) => {
+        this.runInfiniteScrollPagination = async (url,filename,callback) => {
             // Set up browser and page.
             let scraperObject = new scraper();
             const browser = await puppeteer.launch({headless: false});
@@ -19,10 +19,10 @@ class main{
                 if(err) {
                     return console.log(err);
                 }
-                return {status:true};
+                return callback(null,{status:true});
             });
         }
-        this.runPageWisePagination = async (url,filename,maxPagesToScrap) => {
+        this.runPageWisePagination = async (url,filename,maxPagesToScrap,callback) => {
             var scraperObject = new scraper();
             var combinedDataList = {};
             for (let offsetValue = 0; offsetValue < maxPagesToScrap; offsetValue+=1) {
@@ -33,8 +33,8 @@ class main{
                 combinedDataList[offsetValue+1] = res;
                 if (offsetValue+1 == maxPagesToScrap){
                     fs.writeFileSync(`./${filename}`, JSON.stringify(combinedDataList))
-                    console.log("Data is Saved!");
-                    return {status:true};
+                    console.log('Data is Saved!');
+                    return callback(null,{status:true});
                 }
             }
         }
