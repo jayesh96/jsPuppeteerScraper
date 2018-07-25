@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -10,7 +11,7 @@
 
 <body class="stackedit">
   <div class="stackedit__html"><h1 id="documentation-for-js-puppetter-scraper">Documentation for js-puppetter-scraper</h1>
-<p>js-puppetter-scraper is a nodejs package based on puppeteer library.The main dependency for the project is <strong>puppetter</strong>.<br>
+<p><strong>js-puppetter-scraper</strong> is a <strong>nodejs package</strong> based on puppeteer library.The main dependency for the project is <strong>puppetter</strong>.<br>
 Install puppetter using :</p>
 <pre><code>	npm i puppetter
 </code></pre>
@@ -77,6 +78,24 @@ The input required for runPageWisePagination() is <strong>url</strong> ,<strong>
 <p>This module is used for scraping and extracting data and comprises of three different functions</p>
 <h2 id="output">Output</h2>
 <p>The output of project will be <code>&lt;filename&gt;.json</code> file stored in root project.</p>
+<h2 id="running--test-files">Running  Test Files</h2>
+<p>Unit Test has been done using <strong>Mocha+Chai</strong> . The test script can be called using</p>
+<pre><code>				npm test
+</code></pre>
+<p>The test output will be saved as <strong>testdata.json</strong></p>
+<h2 id="check-out-few-examples">Check out few examples</h2>
+<p><em><strong>1 ) Scraper for infinite scrolling</strong></em></p>
+<pre><code>node example/example.js --pagination 'infinte_scrolling' --url '&lt;some_url&gt;' --filename 'file_name' --type 'scraper_type' c
+</code></pre>
+<p>Example:</p>
+<pre><code>node example/example.js --pagination infinite_scrolling --url 'https://www.burrp.com/delhi/phase-v-restaurants/nearby-offers' --filename data2.json --type housing
+</code></pre>
+<p><em><strong>2) Scraping page wise</strong></em></p>
+<pre><code>node example/example.js --pagination 'page_wise' --url '&lt;some_url&gt;' --filename 'file_name' --type 'scraper_type' --pagecount 'no_of_pages_to scrap'
+</code></pre>
+<p>Example:</p>
+<pre><code>node example/example.js --pagination page_wise --url 'https://www.booking.com/searchresults.html?aid=304142&amp;label=gen173nr-1FCAEoggJCAlhYSDNYBGhsiAEBmAExuAEHyAEM2AEB6AEB-AECkgIBeagCAw&amp;sid=caa43958feeb7988ce08164373a68dbb&amp;class_interval=1&amp;dest_id=866&amp;dest_type=region&amp;dtdisc=0&amp;from_sf=1&amp;group_adults=2&amp;group_children=0&amp;inac=0&amp;index_postcard=0&amp;label_click=undef&amp;lsf=class%7C4%7C639&amp;nflt=class=5;class=4;class=3;&amp;no_rooms=1&amp;order=class&amp;postcard=0&amp;raw_dest_type=region&amp;region=866&amp;room1=A,A&amp;sb_price_type=total&amp;ss_all=0&amp;ssb=empty&amp;sshis=0&amp;rows=15&amp;offset=0' --filename data3.json --type housing --pagecount 2
+</code></pre>
 </div>
 </body>
 
