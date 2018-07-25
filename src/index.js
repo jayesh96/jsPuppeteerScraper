@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer'); 
+console.log(puppeteer)
 const scraper = require('./scraper')
 const fs = require('fs');
 
@@ -30,6 +31,8 @@ class main{
             var scraperObject = new scraper();
             var combinedDataList = {};
             for (let offsetValue = 0; offsetValue < maxPagesToScrap; offsetValue+=1) {
+                // url splitting works only if url contains offset value
+                // for some other requirements change is to made
                 url = url.split('offset')[0]+ `offset=${offsetValue*15}`;
                 const res = await  scraperObject.WebListscraper(scraperObject,url);
                 combinedDataList[offsetValue+1] = res;
